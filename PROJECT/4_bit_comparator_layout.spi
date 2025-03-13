@@ -1,0 +1,156 @@
+*** SPICE deck for cell 4_bit_comparator_layout{lay} from library 4_bit_comparator
+*** Created on Fri May 24, 2024 12:06:24
+*** Last revised on Mon May 27, 2024 15:57:57
+*** Written on Mon May 27, 2024 15:58:01 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT _4InputAND__FourInAND FROM CELL 4InputAND:FourInAND{lay}
+.SUBCKT _4InputAND__FourInAND A B C D gnd out vdd
+Mnmos@0 net@0 B net@1 gnd NMOS L=1.2U W=24U AS=44.82P AD=44.82P PS=51.6U PD=51.6U
+Mnmos@1 net@1 C net@2 gnd NMOS L=1.2U W=24U AS=44.82P AD=44.82P PS=51.6U PD=51.6U
+Mnmos@2 net@2 D net@4 gnd NMOS L=1.2U W=24U AS=72.36P AD=44.82P PS=67.2U PD=51.6U
+Mnmos@3 gnd A net@0 gnd NMOS L=1.2U W=24U AS=44.82P AD=128.34P PS=51.6U PD=111U
+Mnmos@5 gnd net@4 out gnd NMOS L=1.2U W=6U AS=46.44P AD=128.34P PS=45.6U PD=111U
+Mpmos@0 vdd A net@4 vdd PMOS L=1.2U W=12U AS=72.36P AD=109.08P PS=67.2U PD=92.16U
+Mpmos@1 vdd B net@4 vdd PMOS L=1.2U W=12U AS=72.36P AD=109.08P PS=67.2U PD=92.16U
+Mpmos@2 vdd C net@4 vdd PMOS L=1.2U W=12U AS=72.36P AD=109.08P PS=67.2U PD=92.16U
+Mpmos@3 vdd D net@4 vdd PMOS L=1.2U W=12U AS=72.36P AD=109.08P PS=67.2U PD=92.16U
+Mpmos@5 vdd net@4 out vdd PMOS L=1.2U W=12U AS=46.44P AD=109.08P PS=45.6U PD=92.16U
+.ENDS _4InputAND__FourInAND
+
+*** SUBCIRCUIT _4InputOR__FourInOR FROM CELL 4InputOR:FourInOR{lay}
+.SUBCKT _4InputOR__FourInOR A B C D gnd out vdd
+Mnmos@0 net@4 A gnd gnd NMOS L=1.2U W=6U AS=82.08P AD=72.36P PS=69.36U PD=67.2U
+Mnmos@1 net@4 B gnd gnd NMOS L=1.2U W=6U AS=82.08P AD=72.36P PS=69.36U PD=67.2U
+Mnmos@2 net@4 C gnd gnd NMOS L=1.2U W=6U AS=82.08P AD=72.36P PS=69.36U PD=67.2U
+Mnmos@3 net@4 D gnd gnd NMOS L=1.2U W=6U AS=82.08P AD=72.36P PS=69.36U PD=67.2U
+Mnmos@5 gnd net@4 out gnd NMOS L=1.2U W=6U AS=46.44P AD=82.08P PS=45.6U PD=69.36U
+Mpmos@0 net@0 B net@1 vdd PMOS L=1.2U W=48U AS=88.02P AD=88.02P PS=99.6U PD=99.6U
+Mpmos@1 net@1 C net@2 vdd PMOS L=1.2U W=48U AS=88.02P AD=88.02P PS=99.6U PD=99.6U
+Mpmos@2 vdd A net@0 vdd PMOS L=1.2U W=48U AS=88.02P AD=200.34P PS=99.6U PD=171U
+Mpmos@3 net@2 D net@4 vdd PMOS L=1.2U W=48U AS=72.36P AD=88.02P PS=67.2U PD=99.6U
+Mpmos@5 vdd net@4 out vdd PMOS L=1.2U W=12U AS=46.44P AD=200.34P PS=45.6U PD=171U
+.ENDS _4InputOR__FourInOR
+
+*** SUBCIRCUIT InverterProject__INV FROM CELL InverterProject:INV{lay}
+.SUBCKT InverterProject__INV gnd input output vdd
+Mnmos@0 gnd input output gnd NMOS L=1.2U W=6U AS=46.44P AD=84.24P PS=45.6U PD=74.4U
+Mpmos@0 vdd input output vdd PMOS L=1.2U W=12U AS=46.44P AD=113.04P PS=45.6U PD=98.4U
+.ENDS InverterProject__INV
+
+*** SUBCIRCUIT _3InputAND__ThreeInAND FROM CELL 3InputAND:ThreeInAND{lay}
+.SUBCKT _3InputAND__ThreeInAND A B C gnd out vdd
+Mnmos@0 gnd A net@1 gnd NMOS L=1.2U W=18U AS=34.02P AD=122.94P PS=39.6U PD=105U
+Mnmos@1 net@1 B net@0 gnd NMOS L=1.2U W=18U AS=34.02P AD=34.02P PS=39.6U PD=39.6U
+Mnmos@2 net@0 C net@3 gnd NMOS L=1.2U W=18U AS=68.04P AD=34.02P PS=63.6U PD=39.6U
+Mnmos@4 gnd net@3 out gnd NMOS L=1.2U W=6U AS=46.44P AD=122.94P PS=45.6U PD=105U
+Mpmos@0 vdd A net@3 vdd PMOS L=1.2U W=12U AS=68.04P AD=109.89P PS=63.6U PD=93.3U
+Mpmos@1 vdd B net@3 vdd PMOS L=1.2U W=12U AS=68.04P AD=109.89P PS=63.6U PD=93.3U
+Mpmos@2 vdd C net@3 vdd PMOS L=1.2U W=12U AS=68.04P AD=109.89P PS=63.6U PD=93.3U
+Mpmos@4 vdd net@3 out vdd PMOS L=1.2U W=12U AS=46.44P AD=109.89P PS=45.6U PD=93.3U
+.ENDS _3InputAND__ThreeInAND
+
+*** SUBCIRCUIT _2InputAND__TwoInAND FROM CELL 2InputAND:TwoInAND{lay}
+.SUBCKT _2InputAND__TwoInAND A B gnd out vdd
+Mnmos@0 gnd A net@0 gnd NMOS L=1.2U W=12U AS=23.22P AD=117.54P PS=27.6U PD=99U
+Mnmos@1 net@0 B net@2 gnd NMOS L=1.2U W=12U AS=49.02P AD=23.22P PS=47.8U PD=27.6U
+Mnmos@4 gnd net@2 out gnd NMOS L=1.2U W=6U AS=46.44P AD=117.54P PS=45.6U PD=99U
+Mpmos@0 vdd A net@2 vdd PMOS L=1.2U W=12U AS=49.02P AD=105.42P PS=47.8U PD=91.4U
+Mpmos@1 net@2 B vdd vdd PMOS L=1.2U W=12U AS=105.42P AD=49.02P PS=91.4U PD=47.8U
+Mpmos@4 vdd net@2 out vdd PMOS L=1.2U W=12U AS=46.44P AD=105.42P PS=45.6U PD=91.4U
+.ENDS _2InputAND__TwoInAND
+
+*** SUBCIRCUIT _2InputNOR__TwoInNOR FROM CELL 2InputNOR:TwoInNOR{lay}
+.SUBCKT _2InputNOR__TwoInNOR A B gnd out vdd
+Mnmos@0 gnd A out gnd NMOS L=1.2U W=6U AS=54.84P AD=72.54P PS=51.6U PD=63.6U
+Mnmos@1 out B gnd gnd NMOS L=1.2U W=6U AS=72.54P AD=54.84P PS=63.6U PD=51.6U
+Mpmos@0 vdd A net@4 vdd PMOS L=1.2U W=24U AS=44.82P AD=181.44P PS=51.6U PD=153.6U
+Mpmos@1 net@4 B out vdd PMOS L=1.2U W=24U AS=54.84P AD=44.82P PS=51.6U PD=51.6U
+.ENDS _2InputNOR__TwoInNOR
+
+*** TOP LEVEL CELL: 4_bit_comparator_layout{lay}
+XFourInAN@0 net@119 out2 net@245 net@345 gnd_26 net@553 vdd_24 _4InputAND__FourInAND
+XFourInAN@1 net@119 out2 net@245 net@348 gnd_27 net@594 vdd_25 _4InputAND__FourInAND
+XFourInAN@2 net@119 out2 net@245 net@351 gnd_28 Equal vdd_26 _4InputAND__FourInAND
+XFourInOR@0 net@165 net@542 net@550 net@553 gnd_30 LessThan vdd_27 _4InputOR__FourInOR
+XFourInOR@1 net@26 net@580 net@588 net@594 gnd_29 GreaterThan vdd_28 _4InputOR__FourInOR
+XINV@0 gnd A3 net@9 vdd InverterProject__INV
+XINV@1 gnd_34 B3 net@31 vdd_37 InverterProject__INV
+XINV@2 gnd_7 A2 net@220 vdd_5 InverterProject__INV
+XINV@3 gnd_11 B2 net@216 vdd_8 InverterProject__INV
+XINV@4 gnd_18 A1 net@282 vdd_12 InverterProject__INV
+XINV@5 gnd_17 B1 net@278 vdd_16 InverterProject__INV
+XINV@6 gnd_21 A0 net@360 vdd_19 InverterProject__INV
+XINV@7 gnd_23 B0 net@356 vdd_21 InverterProject__INV
+XThreeInA@0 net@119 out2 net@266 gnd_19 net@550 vdd_17 _3InputAND__ThreeInAND
+XThreeInA@1 net@119 out2 net@270 gnd_20 net@588 vdd_18 _3InputAND__ThreeInAND
+XTwoInAND@0 net@9 B3 gnd_33 net@165 vdd_30 _2InputAND__TwoInAND
+XTwoInAND@1 A3 net@31 gnd_35 net@26 vdd_31 _2InputAND__TwoInAND
+XTwoInAND@2 net@220 B2 gnd_8 net@204 vdd_32 _2InputAND__TwoInAND
+XTwoInAND@3 A2 net@216 gnd_36 net@214 vdd_9 _2InputAND__TwoInAND
+XTwoInAND@4 net@119 net@204 gnd_39 net@542 vdd_33 _2InputAND__TwoInAND
+XTwoInAND@5 net@119 net@214 gnd_13 net@580 vdd_35 _2InputAND__TwoInAND
+XTwoInAND@6 net@282 B1 gnd_15 net@266 vdd_13 _2InputAND__TwoInAND
+XTwoInAND@7 A1 net@278 gnd_37 net@270 vdd_15 _2InputAND__TwoInAND
+XTwoInAND@8 net@360 B0 gnd_22 net@345 vdd_20 _2InputAND__TwoInAND
+XTwoInAND@9 A0 net@356 gnd_38 net@348 vdd_22 _2InputAND__TwoInAND
+XTwoInNOR@0 net@165 net@26 gnd_32 net@119 vdd_34 _2InputNOR__TwoInNOR
+XTwoInNOR@1 net@204 net@214 gnd_9 out2 vdd_36 _2InputNOR__TwoInNOR
+XTwoInNOR@2 net@266 net@270 gnd_14 net@245 vdd_14 _2InputNOR__TwoInNOR
+XTwoInNOR@3 net@345 net@348 gnd_25 net@351 vdd_23 _2InputNOR__TwoInNOR
+
+* Spice Code nodes in cell cell '4_bit_comparator_layout{lay}'
+vdd vdd 0 DC 5
+vdd5 vdd_5 0 DC 5
+vdd9 vdd_9 0 DC 5
+vdd8 vdd_8 0 DC 5
+vdd37 vdd_37 0 DC 5
+vdd12 vdd_12 0 DC 5
+vdd13 vdd_13 0 DC 5
+vdd14 vdd_14 0 DC 5
+vdd15 vdd_15 0 DC 5
+vdd16 vdd_16 0 DC 5
+vdd17 vdd_17 0 DC 5
+vdd18 vdd_18 0 DC 5
+vdd19 vdd_19 0 DC 5
+vdd20 vdd_20 0 DC 5
+vdd21 vdd_21 0 DC 5
+vdd22 vdd_22 0 DC 5
+vdd23 vdd_23 0 DC 5
+vdd24 vdd_24 0 DC 5
+vdd25 vdd_25 0 DC 5
+vdd26 vdd_26 0 DC 5
+vdd27 vdd_27 0 DC 5
+vdd28 vdd_28 0 DC 5
+vdd29 vdd_29 0 DC 5
+vdd30 vdd_30 0 DC 5
+vdd31 vdd_31 0 DC 5
+vdd32 vdd_32 0 DC 5
+vdd33 vdd_33 0 DC 5
+vdd34 vdd_34 0 DC 5
+vdd35 vdd_35 0 DC 5
+vdd36 vdd_36 0 DC 5
+vA3 A3 0 pwl 5n 5 10n 5 20n 5 50n 5 60n 5 70n 5 80n 5 100n 5
+vB3 B3 0 pwl 5n 0 10n 0 20n 0 50n 0 60n 0 70n 0 80n 0 100n 0
+vA2 A2 0 pwl 5n 5 10n 5 20n 5 50n 5 60n 5 70n 5 80n 5 100n 5
+vB2 B2  0 pwl 5n 0 10n 0 20n 0 50n 0 60n 0 70n 0 80n 0 100n 0
+vA1 A1 0 pwl 5n 5 10n 5 20n 5 50n 5 60n 5 70n 5 80n 5 100n 5
+vB1 B1  0 pwl 5n 0 10n 0 20n 0 50n 0 60n 0 70n 0 80n 0 100n 0
+vA0 A0 0 pwl 5n 5 10n 5 20n 5 50n 5 60n 5 70n 5 80n 5 100n 5
+vB0 B0  0 pwl 5n 0 10n 0 20n 0 50n 0 60n 0 70n 0 80n 0 100n 0
+cload1 GreaterThan 0 250fF
+.measure tran tf1 trig v(GreaterThan) val= 4.5 fall=1 td=1ns targ v(GreaterThan) val=0.5 fall=1
+.measure tran tr1 trig v(GreaterThan) val= 0.5 rise=1 td=5ns targ v(GreaterThan) val=4.5 rise=1
+cload2 LessThan 0 250fF
+.measure tran tf2 trig v(LessThan) val= 4.5 fall=1 td=1ns targ v(LessThan) val=0.5 fall=1
+.measure tran tr2 trig v(LessThan) val= 0.5 rise=1 td=5ns targ v(LessThan) val=4.5 rise=1
+cload3 Equal 0 250fF
+.measure tran tf3 trig v(Equal) val= 4.5 fall=1 td=1ns targ v(Equal) val=0.5 fall=1
+.measure tran tr3 trig v(Equal) val= 0.5 rise=1 td=5ns targ v(Equal) val=4.5 rise=1
+cload4 JOUWANA 0 250fF
+.measure tran tf4 trig v(JOUWANA) val= 4.5 fall=1 td=1ns targ v(JOUWANA) val=0.5 fall=1
+.measure tran tr4 trig v(JOUWANA) val= 0.5 rise=1 td=5ns targ v(JOUWANA) val=4.5 rise=1
+.tran 0 0.1us
+.include C:\LTspice\C5_models.txt
+.END

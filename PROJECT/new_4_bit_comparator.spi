@@ -1,0 +1,42 @@
+*** SPICE deck for cell new_4_bit_comparator{lay} from library 4_bit_comparator
+*** Created on Mon May 27, 2024 12:32:54
+*** Last revised on Mon May 27, 2024 18:22:36
+*** Written on Mon May 27, 2024 18:23:44 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT InverterProject__INV FROM CELL InverterProject:INV{lay}
+.SUBCKT InverterProject__INV gnd input output vdd
+Mnmos@0 gnd input output gnd NMOS L=1.2U W=6U AS=46.44P AD=84.24P PS=45.6U PD=74.4U
+Mpmos@0 vdd input output vdd PMOS L=1.2U W=12U AS=46.44P AD=113.04P PS=45.6U PD=98.4U
+.ENDS InverterProject__INV
+
+*** SUBCIRCUIT _2InputAND__TwoInAND FROM CELL 2InputAND:TwoInAND{lay}
+.SUBCKT _2InputAND__TwoInAND A B gnd out vdd
+Mnmos@0 gnd A net@0 gnd NMOS L=1.2U W=12U AS=23.22P AD=117.54P PS=27.6U PD=99U
+Mnmos@1 net@0 B net@2 gnd NMOS L=1.2U W=12U AS=49.02P AD=23.22P PS=47.8U PD=27.6U
+Mnmos@4 gnd net@2 out gnd NMOS L=1.2U W=6U AS=46.44P AD=117.54P PS=45.6U PD=99U
+Mpmos@0 vdd A net@2 vdd PMOS L=1.2U W=12U AS=49.02P AD=105.42P PS=47.8U PD=91.4U
+Mpmos@1 net@2 B vdd vdd PMOS L=1.2U W=12U AS=105.42P AD=49.02P PS=91.4U PD=47.8U
+Mpmos@4 vdd net@2 out vdd PMOS L=1.2U W=12U AS=46.44P AD=105.42P PS=45.6U PD=91.4U
+.ENDS _2InputAND__TwoInAND
+
+*** TOP LEVEL CELL: new_4_bit_comparator{lay}
+XINV@7 gnd A3 net@141 vdd_1 InverterProject__INV
+XINV@8 gnd_2 B3 INV@8_output vdd_3 InverterProject__INV
+XTwoInAND@7 net@141 B3 gnd_1 out vdd_2 _2InputAND__TwoInAND
+
+* Spice Code nodes in cell cell 'new_4_bit_comparator{lay}'
+vdd vdd 0 DC 5
+vdd1 vdd_1 0 DC 5
+vdd2 vdd_2 0 DC 5
+vdd3 vdd_3 0 DC 5
+vdd4 vdd_4 0 DC 5
+vA3 A3 0 pwl 5n 0 10n 0 20n 0 50n 0 60n 0 70n 0 80n 0 100n 0
+vB3 B3 0 pwl 5n 0 10n 0 20n 0 50n 0 60n 0 70n 0 80n 0 100n 0
+cload out 0 250fF
+.measure tran tf1 trig v(out) val= 4.5 fall=1 td=1ns targ v(out) val=0.5 fall=1
+.measure tran tr1 trig v(out) val= 0.5 rise=1 td=5ns targ v(out) val=4.5 rise=1
+.tran 0 0.1us
+.include C:\LTspice\C5_models.txt
+.END

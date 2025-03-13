@@ -1,0 +1,40 @@
+LTspice 24.0.9 for Windows
+Circuit: *** SPICE deck for cell TwoInAND{lay} from library 2InputAND
+Start Time: Mon May 27 16:52:08 2024
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = modified trap
+va: Removing PWL point (1e-08,5)
+vb: Removing PWL point (1e-08,5)
+WARNING: Node OUT2 is floating.
+WARNING: Node OUT3 is floating.
+
+WARNING: Less than two connections to node vdd_1.  This node is used by vdd1.
+WARNING: Less than two connections to node vdd_2.  This node is used by vdd2.
+WARNING: Less than two connections to node vdd_3.  This node is used by vdd3.
+WARNING: Less than two connections to node vdd_4.  This node is used by vdd4.
+WARNING: Less than two connections to node out2.  This node is used by cload2.
+WARNING: Less than two connections to node out3.  This node is used by cload3.
+Direct Newton iteration for .op point succeeded.
+
+
+Measurement "tf1" FAIL'ed
+
+Measurement "tr1" FAIL'ed
+
+Measurement "tf2" FAIL'ed
+
+Measurement "tr2" FAIL'ed
+
+Measurement "tf3" FAIL'ed
+
+Measurement "tr3" FAIL'ed
+
+Total elapsed time: 0.501 seconds.
+

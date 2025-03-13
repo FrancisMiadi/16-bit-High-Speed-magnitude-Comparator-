@@ -1,0 +1,46 @@
+LTspice 24.0.9 for Windows
+Circuit: *** SPICE deck for cell 4_bit_comparator_layout{lay} from library 4_bit_comparator
+Start Time: Mon May 27 15:58:02 2024
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = modified trap
+va3: Removing PWL point (1e-08,5)
+vb3: Removing PWL point (1e-08,0)
+va2: Removing PWL point (1e-08,5)
+vb2: Removing PWL point (1e-08,0)
+va1: Removing PWL point (1e-08,5)
+vb1: Removing PWL point (1e-08,0)
+va0: Removing PWL point (1e-08,5)
+vb0: Removing PWL point (1e-08,0)
+WARNING: Node JOUWANA is floating.
+
+WARNING: Less than two connections to node vdd_29.  This node is used by vdd29.
+WARNING: Less than two connections to node jouwana.  This node is used by cload4.
+Direct Newton iteration for .op point succeeded.
+Changing Tseed to 9.76562e-15
+
+
+Measurement "tf1" FAIL'ed
+
+Measurement "tr1" FAIL'ed
+
+Measurement "tf2" FAIL'ed
+
+Measurement "tr2" FAIL'ed
+
+Measurement "tf3" FAIL'ed
+
+Measurement "tr3" FAIL'ed
+
+Measurement "tf4" FAIL'ed
+
+Measurement "tr4" FAIL'ed
+
+Total elapsed time: 1.207 seconds.
+

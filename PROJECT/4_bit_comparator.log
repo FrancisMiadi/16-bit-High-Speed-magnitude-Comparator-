@@ -1,0 +1,20 @@
+LTspice 24.0.9 for Windows
+Circuit: *** SPICE deck for cell 4_bit_comparator{sch} from library 2InputNOR
+Start Time: Tue May 14 21:05:05 2024
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Fatal Error: Previous analysis already found: .tran 0 0.1us

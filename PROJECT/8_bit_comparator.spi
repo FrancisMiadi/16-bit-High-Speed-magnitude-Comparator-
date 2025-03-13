@@ -1,0 +1,163 @@
+*** SPICE deck for cell 8_bit_comparator{sch} from library 4_bit_comparator
+*** Created on Tue Jun 11, 2024 10:50:01
+*** Last revised on Thu Jun 13, 2024 22:40:27
+*** Written on Thu Jun 13, 2024 22:40:33 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT _4InputAND__FourInAND FROM CELL 4InputAND:FourInAND{sch}
+.SUBCKT _4InputAND__FourInAND A B C D out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 net@6 B net@19 gnd NMOS L=1.2U W=24U
+Mnmos@1 net@19 A net@20 gnd NMOS L=1.2U W=24U
+Mnmos@2 net@20 C net@21 gnd NMOS L=1.2U W=24U
+Mnmos@3 net@21 D gnd gnd NMOS L=1.2U W=24U
+Mnmos@4 out net@6 gnd gnd NMOS L=1.2U W=6U
+Mpmos@0 vdd A net@6 vdd PMOS L=1.2U W=12U
+Mpmos@1 vdd B net@6 vdd PMOS L=1.2U W=12U
+Mpmos@2 vdd C net@6 vdd PMOS L=1.2U W=12U
+Mpmos@3 vdd D net@6 vdd PMOS L=1.2U W=12U
+Mpmos@4 vdd net@6 out vdd PMOS L=1.2U W=12U
+.ENDS _4InputAND__FourInAND
+
+*** SUBCIRCUIT _4InputOR__FourInOR FROM CELL 4InputOR:FourInOR{sch}
+.SUBCKT _4InputOR__FourInOR A B C D out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 net@11 D gnd gnd NMOS L=1.2U W=6U
+Mnmos@1 net@11 A gnd gnd NMOS L=1.2U W=6U
+Mnmos@2 net@11 B gnd gnd NMOS L=1.2U W=6U
+Mnmos@3 net@11 C gnd gnd NMOS L=1.2U W=6U
+Mnmos@4 out net@11 gnd gnd NMOS L=1.2U W=6U
+Mpmos@0 net@23 C net@11 vdd PMOS L=1.2U W=48U
+Mpmos@1 net@24 B net@23 vdd PMOS L=1.2U W=48U
+Mpmos@2 net@25 A net@24 vdd PMOS L=1.2U W=48U
+Mpmos@3 vdd D net@25 vdd PMOS L=1.2U W=48U
+Mpmos@4 vdd net@11 out vdd PMOS L=1.2U W=12U
+.ENDS _4InputOR__FourInOR
+
+*** SUBCIRCUIT InverterProject__INV FROM CELL InverterProject:INV{sch}
+.SUBCKT InverterProject__INV input output
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 output input gnd gnd NMOS L=1.2U W=6U
+Mpmos@0 vdd input output vdd PMOS L=1.2U W=12U
+.ENDS InverterProject__INV
+
+*** SUBCIRCUIT _3InputAND__ThreeInAND FROM CELL 3InputAND:ThreeInAND{sch}
+.SUBCKT _3InputAND__ThreeInAND A B C out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 net@6 B net@13 gnd NMOS L=1.2U W=18U
+Mnmos@1 net@13 C net@14 gnd NMOS L=1.2U W=18U
+Mnmos@2 net@14 A gnd gnd NMOS L=1.2U W=18U
+Mnmos@3 out net@6 gnd gnd NMOS L=1.2U W=6U
+Mpmos@0 vdd A net@6 vdd PMOS L=1.2U W=12U
+Mpmos@1 vdd B net@6 vdd PMOS L=1.2U W=12U
+Mpmos@2 vdd C net@6 vdd PMOS L=1.2U W=12U
+Mpmos@3 vdd net@6 out vdd PMOS L=1.2U W=12U
+.ENDS _3InputAND__ThreeInAND
+
+*** SUBCIRCUIT _2InputAND__TwoInAND FROM CELL 2InputAND:TwoInAND{sch}
+.SUBCKT _2InputAND__TwoInAND A B out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 net@4 A net@10 gnd NMOS L=1.2U W=12U
+Mnmos@1 net@10 B gnd gnd NMOS L=1.2U W=12U
+Mnmos@2 out net@4 gnd gnd NMOS L=1.2U W=6U
+Mpmos@0 vdd B net@4 vdd PMOS L=1.2U W=12U
+Mpmos@1 vdd A net@4 vdd PMOS L=1.2U W=12U
+Mpmos@2 vdd net@4 out vdd PMOS L=1.2U W=12U
+.ENDS _2InputAND__TwoInAND
+
+*** SUBCIRCUIT _2InputNOR__TwoInNOR FROM CELL 2InputNOR:TwoInNOR{sch}
+.SUBCKT _2InputNOR__TwoInNOR A B out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out B gnd gnd NMOS L=1.2U W=6U
+Mnmos@1 out A gnd gnd NMOS L=1.2U W=6U
+Mpmos@0 net@9 B out vdd PMOS L=1.2U W=24U
+Mpmos@1 vdd A net@9 vdd PMOS L=1.2U W=24U
+.ENDS _2InputNOR__TwoInNOR
+
+*** SUBCIRCUIT _4_bit_comparator__4_bit_comparator_schematic FROM CELL 4_bit_comparator_schematic{sch}
+.SUBCKT _4_bit_comparator__4_bit_comparator_schematic A0 A1 A2 A3 B0 B1 B2 B3 Equal GreaterThan LessThan
+** GLOBAL gnd
+** GLOBAL vdd
+XFourInAN@0 net@226 net@240 net@265 net@201 net@301 _4InputAND__FourInAND
+XFourInAN@1 net@226 net@240 net@265 net@218 net@318 _4InputAND__FourInAND
+XFourInAN@2 net@226 net@240 net@265 net@290 Equal _4InputAND__FourInAND
+XFourInOR@0 net@19 net@296 net@298 net@301 LessThan _4InputOR__FourInOR
+XFourInOR@2 net@118 net@308 net@312 net@318 GreaterThan _4InputOR__FourInOR
+XINV@0 A3 net@5 InverterProject__INV
+XINV@1 B3 net@124 InverterProject__INV
+XINV@2 A2 net@138 InverterProject__INV
+XINV@3 B2 net@139 InverterProject__INV
+XINV@4 A1 net@167 InverterProject__INV
+XINV@5 B1 net@168 InverterProject__INV
+XINV@6 A0 net@196 InverterProject__INV
+XINV@7 B0 net@197 InverterProject__INV
+XThreeInA@0 net@226 net@240 net@172 net@298 _3InputAND__ThreeInAND
+XThreeInA@1 net@226 net@240 net@189 net@312 _3InputAND__ThreeInAND
+XTwoInAND@0 net@5 B3 net@19 _2InputAND__TwoInAND
+XTwoInAND@1 A3 net@124 net@118 _2InputAND__TwoInAND
+XTwoInAND@2 net@138 B2 net@143 _2InputAND__TwoInAND
+XTwoInAND@3 A2 net@139 net@160 _2InputAND__TwoInAND
+XTwoInAND@4 net@167 B1 net@172 _2InputAND__TwoInAND
+XTwoInAND@5 A1 net@168 net@189 _2InputAND__TwoInAND
+XTwoInAND@6 net@196 B0 net@201 _2InputAND__TwoInAND
+XTwoInAND@7 A0 net@197 net@218 _2InputAND__TwoInAND
+XTwoInAND@8 net@226 net@143 net@296 _2InputAND__TwoInAND
+XTwoInAND@9 net@226 net@160 net@308 _2InputAND__TwoInAND
+XTwoInNOR@1 net@19 net@118 net@226 _2InputNOR__TwoInNOR
+XTwoInNOR@2 net@143 net@160 net@240 _2InputNOR__TwoInNOR
+XTwoInNOR@3 net@172 net@189 net@265 _2InputNOR__TwoInNOR
+XTwoInNOR@4 net@201 net@218 net@290 _2InputNOR__TwoInNOR
+.ENDS _4_bit_comparator__4_bit_comparator_schematic
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: 8_bit_comparator{sch}
+X_4_bit_co@0 A4 A5 A6 A7 B4 B5 B6 B7 net@23 net@30 net@52 _4_bit_comparator__4_bit_comparator_schematic
+X_4_bit_co@1 A0 A1 A2 A3 B0 B1 B2 B3 net@39 net@25 net@74 _4_bit_comparator__4_bit_comparator_schematic
+XINV@0 net@32 GreaterThan InverterProject__INV
+XINV@1 net@62 LessThan InverterProject__INV
+XTwoInAND@0 net@23 net@25 net@29 _2InputAND__TwoInAND
+XTwoInAND@1 net@23 net@39 Equal _2InputAND__TwoInAND
+XTwoInAND@2 net@23 net@74 net@50 _2InputAND__TwoInAND
+XTwoInNOR@0 net@30 net@29 net@32 _2InputNOR__TwoInNOR
+XTwoInNOR@1 net@52 net@50 net@62 _2InputNOR__TwoInNOR
+
+* Spice Code nodes in cell cell '8_bit_comparator{sch}'
+vdd vdd 0 DC 5
+vA7 A7 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb7 B7 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+va6 A6 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb6 B6 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+va5 A5 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb5 B5 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+va4 A4 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb4 B4 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+v3 A3 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb3 B3 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+va2 A2 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb2 B2 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+va1 A1 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb1 B1 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+va0 A0 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 70n 5 80n 5 100n 0
+vb0 B0 0 pwl 5n 0 10n 5 20n 0 50n 0 60n 5 80n 5 100n 0
+cload1 GreaterThan 0 150fF
+.measure tran tf1 trig v(GreaterThan) val= 4.5 fall=1 td=1ns targ v(GreaterThan) val=0.5 fall=1
+.measure tran tr1 trig v(GreaterThan) val= 0.5 rise=1 td=5ns targ v(GreaterThan) val=4.5 rise=1
+cload2 LessThan 0 150fF
+.measure tran tf2 trig v(LessThan) val= 4.5 fall=1 td=1ns targ v(LessThan) val=0.5 fall=1
+.measure tran tr2 trig v(LessThan) val= 0.5 rise=1 td=5ns targ v(LessThan) val=4.5 rise=1
+cload3 Equal 0 150fF
+.measure tran tf3 trig v(Equal) val= 4.5 fall=1 td=1ns targ v(Equal) val=0.5 fall=1
+.measure tran tr3 trig v(Equal) val= 0.5 rise=1 td=5ns targ v(Equal) val=4.5 rise=1
+.tran 0 0.1us
+.option reltol=0.01
+.ic V(N001) = 0
+.include C:\LTspice\C5_models.txt
+.END

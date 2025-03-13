@@ -1,0 +1,41 @@
+*** SPICE deck for cell 4_BIT_TEST{sch} from library TEST
+*** Created on Tue May 14, 2024 22:09:53
+*** Last revised on Tue May 14, 2024 22:13:32
+*** Written on Tue May 14, 2024 22:13:43 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: 4_BIT_TEST{sch}
+Mnmos@0 net@27 A3 gnd gnd NMOS L=1.2U W=6U
+Mnmos@1 net@29 B3 gnd gnd NMOS L=1.2U W=6U
+Mnmos@2 net@35 net@27 net@22 gnd NMOS L=1.2U W=12U
+Mnmos@3 net@22 net@29 gnd gnd NMOS L=1.2U W=12U
+Mnmos@4 net@115 net@35 gnd gnd NMOS L=1.2U W=6U
+Mnmos@5 net@69 A3 net@56 gnd NMOS L=1.2U W=12U
+Mnmos@6 net@56 net@29 gnd gnd NMOS L=1.2U W=12U
+Mnmos@7 net@109 net@69 gnd gnd NMOS L=1.2U W=6U
+Mnmos@8 out net@109 gnd gnd NMOS L=1.2U W=6U
+Mnmos@9 out net@115 gnd gnd NMOS L=1.2U W=6U
+Mpmos@0 vdd A3 net@27 vdd PMOS L=1.2U W=12U
+Mpmos@1 vdd B3 net@29 vdd PMOS L=1.2U W=12U
+Mpmos@2 vdd net@29 net@35 vdd PMOS L=1.2U W=12U
+Mpmos@3 vdd net@27 net@35 vdd PMOS L=1.2U W=12U
+Mpmos@4 vdd net@35 net@115 vdd PMOS L=1.2U W=12U
+Mpmos@5 vdd net@29 net@69 vdd PMOS L=1.2U W=12U
+Mpmos@6 vdd A3 net@69 vdd PMOS L=1.2U W=12U
+Mpmos@7 vdd net@69 net@109 vdd PMOS L=1.2U W=12U
+Mpmos@8 net@113 net@109 out vdd PMOS L=1.2U W=24U
+Mpmos@9 vdd net@115 net@113 vdd PMOS L=1.2U W=24U
+
+* Spice Code nodes in cell cell '4_BIT_TEST{sch}'
+vdd vdd 0 DC 5
+vA3 A3 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 80n 5 100n 5 
+vB3 B3 0 pwl 5n 0 10n 0 20n 5 50n 5 60n 0 80n 5 100n 5 
+cload out 0 250fF
+.measure tran tf trig v(out) val= 4.5 fall=1 td=1ns targ v(out1) val=0.5 fall=1
+.measure tran tr trig v(out) val= 0.5 rise=1 td=5ns targ v(out1) val=4.5 rise=1
+.tran 0 0.1us
+.include C:\LTspice\C5_models.txt
+.END

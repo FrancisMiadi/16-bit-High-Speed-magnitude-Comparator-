@@ -1,0 +1,25 @@
+LTspice 24.0.9 for Windows
+Circuit: *** SPICE deck for cell new_4_bit_comparator{lay} from library 4_bit_comparator
+Start Time: Mon May 27 18:23:44 2024
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = modified trap
+va3: Removing PWL point (1e-08,0)
+vb3: Removing PWL point (1e-08,0)
+WARNING: Less than two connections to node vdd.  This node is used by vdd.
+WARNING: Less than two connections to node vdd_4.  This node is used by vdd4.
+Direct Newton iteration for .op point succeeded.
+
+
+Measurement "tf1" FAIL'ed
+
+Measurement "tr1" FAIL'ed
+
+Total elapsed time: 0.510 seconds.
+

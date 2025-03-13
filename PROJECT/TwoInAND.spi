@@ -1,0 +1,35 @@
+*** SPICE deck for cell TwoInAND{lay} from library 2InputAND
+*** Created on Sat May 11, 2024 19:40:29
+*** Last revised on Mon May 27, 2024 16:52:03
+*** Written on Mon May 27, 2024 16:52:07 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** TOP LEVEL CELL: 2InputAND:TwoInAND{lay}
+Mnmos@0 gnd A net@0 gnd NMOS L=1.2U W=12U AS=23.22P AD=117.54P PS=27.6U PD=99U
+Mnmos@1 net@0 B net@2 gnd NMOS L=1.2U W=12U AS=49.02P AD=23.22P PS=47.8U PD=27.6U
+Mnmos@4 gnd net@2 out gnd NMOS L=1.2U W=6U AS=46.44P AD=117.54P PS=45.6U PD=99U
+Mpmos@0 vdd A net@2 vdd PMOS L=1.2U W=12U AS=49.02P AD=105.42P PS=47.8U PD=91.4U
+Mpmos@1 net@2 B vdd vdd PMOS L=1.2U W=12U AS=105.42P AD=49.02P PS=91.4U PD=47.8U
+Mpmos@4 vdd net@2 out vdd PMOS L=1.2U W=12U AS=46.44P AD=105.42P PS=45.6U PD=91.4U
+
+* Spice Code nodes in cell cell '2InputAND:TwoInAND{lay}'
+vdd vdd 0 DC 5
+vdd1 vdd_1 0 DC 5
+vdd2 vdd_2 0 DC 5
+vdd3 vdd_3 0 DC 5
+vdd4 vdd_4 0 DC 5
+vA A 0 pwl 5n 5 10n 5 20n 5 50n 5 60n 5 70n 5 80n 5 100n 5
+vB B 0 pwl 5n 5 10n 5 20n 5 50n 5 60n 5 70n 5 80n 5 100n 5
+cload1 out 0 250fF
+.measure tran tf1 trig v(out) val= 4.5 fall=1 td=1ns targ v(out) val=0.5 fall=1
+.measure tran tr1 trig v(out) val= 0.5 rise=1 td=5ns targ v(out) val=4.5 rise=1
+cload2 out2 0 250fF
+.measure tran tf2 trig v(out2) val= 4.5 fall=1 td=1ns targ v(out2) val=0.5 fall=1
+.measure tran tr2 trig v(out2) val= 0.5 rise=1 td=5ns targ v(out2) val=4.5 rise=1
+cload3 out3 0 250fF
+.measure tran tf3 trig v(out3) val= 4.5 fall=1 td=1ns targ v(out3) val=0.5 fall=1
+.measure tran tr3 trig v(out3) val= 0.5 rise=1 td=5ns targ v(out3) val=4.5 rise=1
+.tran 0 0.1us
+.include C:\LTspice\C5_models.txt
+.END
